@@ -59,16 +59,24 @@ mix
     .copy( './node_modules/bootstrap-table/dist/bootstrap-table-locale-all.min.js', 'public/js/dist' )
     .copy( './node_modules/bootstrap-table/dist/locale/bootstrap-table-en-US.min.js', 'public/js/dist' )
 
+/**
+ * Copy Chart.js file (it's big, and used in only one place)
+ */
+mix
+    .copy('./node_modules/chart.js/dist/Chart.min.js', 'public/js/dist')
+
+
 // Combine main SnipeIT JS files
 mix
   .js(
     [
-      "./resources/assets/js/snipeit.js", //this is the actual Snipe-IT JS - require()s bootstrap.js
+      "./resources/assets/js/snipeit.js",
       "./resources/assets/js/snipeit_modals.js",
       "./node_modules/canvas-confetti/dist/confetti.browser.js",
     ],
-    "./public/js/build/app.js" //because of compiling - this does not work very well :(
-  )
+      "./public/js/dist/all.js"
+  ).sourceMaps(true, 'source-map', 'source-map').version();
+
 
 var skins = fs.readdirSync("resources/assets/less/skins");
 
@@ -161,9 +169,4 @@ mix
         'public/js/dist/bootstrap-table.js'
  ).version();
 
-mix
-  .combine(
-    ["./public/js/build/vendor.js", "./public/js/build/app.js"],
-    "./public/js/dist/all.js"
-  )
-  .version();
+mix.version();

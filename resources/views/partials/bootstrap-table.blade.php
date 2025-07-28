@@ -123,6 +123,7 @@
                     columns: 'fa-columns',
                     refresh: 'fas fa-sync-alt',
                     export: 'fa-download',
+                    print: 'fa-print',
                     clearSearch: 'fa-times'
                 },
                 locale: '{{ app()->getLocale() }}',
