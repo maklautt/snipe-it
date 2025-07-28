@@ -4,7 +4,7 @@
 // window.jQuery = jQuery
 // window.$ = jQuery
 
-require('./bootstrap');
+import './bootstrap';
 
 /**
  * Module containing core application logic.

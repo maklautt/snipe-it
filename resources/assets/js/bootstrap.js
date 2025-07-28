@@ -1,4 +1,5 @@
-window._ = require('lodash');
+import _ from 'lodash';
+window._ = _;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -11,13 +12,13 @@ window._ = require('lodash');
  * jQuery UI is loaded here and then the tooltip is assigned another funtion name
  * This resolves the issue of jquery-ui & bootstrap tooltip conflict
  */
-require('jquery-ui');
+import 'jquery-ui';
 jQuery.fn.uitooltip = jQuery.fn.tooltip; 
 
 /**
  * Load boostrap
  */
-require('bootstrap-less');
+import 'bootstrap-less';
 
 // require('admin-lte');
 
