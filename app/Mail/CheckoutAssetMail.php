@@ -13,7 +13,6 @@ use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Queue\SerializesModels;
 
 class CheckoutAssetMail extends Mailable
@@ -100,7 +99,7 @@ class CheckoutAssetMail extends Mailable
                 'admin'         => $this->admin,
                 'status'        => $this->item->assetstatus?->name,
                 'note'          => $this->note,
-                'target'        => $this->target,
+                'target'        => $this->target->name ?? $this->admin->present()->fullName(),
                 'fields'        => $fields,
                 'eula'          => $eula,
                 'req_accept'    => $req_accept,
@@ -125,7 +124,7 @@ class CheckoutAssetMail extends Mailable
     private function getSubject(): string
     {
         if ($this->firstTimeSending) {
-            return trans('mail.Asset_Checkout_Notification');
+            return trans('mail.Asset_Checkout_Notification').' - '.$this->item->asset_tag;
         }
 
         return trans('mail.unaccepted_asset_reminder');
