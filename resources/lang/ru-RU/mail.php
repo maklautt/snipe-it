@@ -76,7 +76,7 @@ return [
     'min_QTY' => 'Мин Кол-во',
     'name' => 'Название',
     'new_item_checked' => 'Новый предмет был выдан под вашем именем, подробности ниже.',
-    'new_item_checked_with_acceptance' => 'A new item has been checked out under your name that requires acceptance, details are below.',
+    'new_item_checked_with_acceptance' => 'Новый элемент был зарегистрирован на ваше имя и требует подтверждения, подробности ниже.',
     'new_item_checked_location' => 'A new item has been checked out to :location, details are below.',
     'recent_item_checked' => 'An item was recently checked out under your name that requires acceptance, details are below.',
     'notes' => 'Заметки',
